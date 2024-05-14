@@ -1,0 +1,18 @@
+{
+  "type": "module",
+  "scripts": {
+    "test": "node --test --import tsx **/*.test.*"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.3.16",
+    "@types/got": "^9.6.12",
+    "@types/node": "^20.12.11",
+    "axios": "^1.6.8",
+    "chai": "^5.1.1",
+    "tsx": "^4.10.1"
+  },
+  "dependencies": {
+    "fp-ts": "^2.16.5",
+    "io-ts": "^2.2.21"
+  }
+}
