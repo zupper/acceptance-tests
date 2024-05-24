@@ -1,6 +1,11 @@
-import { HTTPDriver } from './driver/HTTPDriver';
 import { TestDriver } from './dsl/TestDriver';
+import { HTTPDriver } from './driver/http/HTTPDriver';
+
+const platform = process.env.PLATFORM ?? 'http';
 
 export const getTestDriver = (): TestDriver => {
-  return new HTTPDriver('https://httpbin.org/post');
+  switch (platform) {
+    case 'http': return new HTTPDriver('https://httpbin.org/post');
+    default: throw new Error('Invalid platform requested');
+  }
 };

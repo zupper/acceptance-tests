@@ -24,7 +24,7 @@ export class App {
     const password = params.password ?? defaults.password;
 
     const res = await this.#driver.login(email, password);
-    this.#auth = E.getOrElseW(() => undefined)(res);
+    this.#auth = E.isRight(res) ? res.right : undefined;
 
     return E.toUnion(res);
   }

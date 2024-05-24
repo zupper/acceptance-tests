@@ -7,7 +7,7 @@ import * as TE from 'fp-ts/lib/TaskEither';
 import * as t from 'io-ts';
 import { PathReporter } from 'io-ts/lib/PathReporter';
 
-import { ValidationErrors } from '../dsl/Errors';
+import { ValidationErrors } from '../../dsl/Errors';
 
 export const convertDecodingErrors =
   (e: t.Errors): ValidationErrors =>
@@ -32,4 +32,8 @@ export const safeAxios =
       () => axios(c),
       (e) => e instanceof Error ? e : new Error(String(e))
     );
+
+
+export const isAxios401 =
+  (e: Error) => axios.isAxiosError(e) && e.response?.status === 401;
 
