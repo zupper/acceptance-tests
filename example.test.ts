@@ -27,7 +27,7 @@ describe('Auth acceptance tests', () => {
   });
 
   it('should require a logged in user to get the user profile', async () => {
-    app.logout();
+    await app.logout();
     expect(await app.userProfile()).to.be.instanceof(AuthenticationError);
   });
 });
